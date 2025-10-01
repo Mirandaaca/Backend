@@ -36,12 +36,4 @@ public class UsuarioController {
     public Usuario crear(@Valid @RequestBody UsuarioCreateDto dto) {
         return service.crear(dto);
     }
-
-    @Operation(summary = "Obtiene un usuario por id", description = "Lanza 404 si no existe")
-    @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = Usuario.class)))
-    @ApiResponse(responseCode = "404", description = "No encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)))
-    @GetMapping("/{id}")
-    public Usuario obtenerPorId(@Parameter(description = "Identificador del usuario") @PathVariable @Min(value = 1, message = "{usuario.edad.min}") Long id) {
-        return service.obtenerPorId(id, null);
-    }
 }
