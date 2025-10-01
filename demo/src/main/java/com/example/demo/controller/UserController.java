@@ -44,4 +44,5 @@ public class UsuarioController {
     public Usuario obtenerPorId(@Parameter(description = "Identificador del usuario") @PathVariable @Min(value = 1, message = "{usuario.edad.min}") Long id) {
         return service.obtenerPorId(id, null);
     }
+
 }
